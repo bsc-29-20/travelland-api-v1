@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 
-//creating the authservice class and exporting it with @Injectable() decorator
+//creating the authservice class and exporting it with @Injectable() decorator for business logic
 @Injectable({})
 export class AuthService{
     
