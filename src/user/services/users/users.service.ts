@@ -1,53 +1,40 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from 'src/user/datatransferobjects/CreateUser.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { UpdateUserDto } from 'src/user/datatransferobjects/UpdateUser.dto';
+import { User } from 'src/typeorm/User';
 
 @Injectable()
 export class UsersService {
-    private  users =[
-        {
-            userid: 1,
-            username:'Namariya',
-            email:'namariyamulewa@gmail.com',
-            phone_number:'0993793094',
-            address:'Lilongwe Area 49',
-            age:'20',
-            gender:'Male',
-          
-        },
-        {
-            userid: 2,
-            username:'Mphatso',
-            email:'mphatsobanda@gmail.com',
-            phone_number:'0884793094',
-            address:'Lilongwe Area 49',
-            age:'16',
-            gender:'Male',
-            
-        },
-        {
-            userid: 3,
-            username:'John',
-            email:'johndoe@gmail.com',
-            phone_number:'0999344394',
-            address:'Lilongwe Area 43',
-            age:'19',
-            gender:'Male',
-            
-        },
-    ];
+    
+    constructor(@InjectRepository(User) private usersRepository: Repository<User>){}
 
     //gets users by id
-    findUserById( userid: number){
-        return this.users.find((user) => user.userid  === userid)
-    }
-
-    //create users
-    createUser(userDto: CreateUserDto){
-        this.users.push(userDto);
+   async findUserById( userid: number){
+    return this.usersRepository.findOne({ where: { userid }})
     }
 
     //get all users
-    getUsers(){
-        return this.users;
+   async getUsers(){
+    return this.usersRepository.find()
+      }
+    
+    //create users
+    async createUser(userDetails: CreateUserDto){
+        const newUser = this.usersRepository.create({...userDetails})
+        return this.usersRepository.save(newUser)
     }
+
+    //update users
+    async updateUser(updateUserDetails: UpdateUserDto, userid: number) {
+        return this.usersRepository.update({userid},{ ...updateUserDetails});
+      }
+    
+      //delete users
+    async deleteUser(userid: number){
+        return this.usersRepository.delete({userid })
+      }
 }
+    
+
