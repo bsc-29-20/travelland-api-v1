@@ -3,6 +3,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './user/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/typeorm/userentity';
+import { ProfileModule } from './profile/profile.module';
 
 
 @Module({
@@ -16,7 +17,7 @@ import { User } from './user/typeorm/userentity';
     entities:[User],
     synchronize: true,
 
-    })
+    }), ProfileModule
   ],
 
   
