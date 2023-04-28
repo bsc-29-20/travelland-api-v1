@@ -4,5 +4,6 @@ export class UpdateUserDto{
     username: string;
     phone_number: string;
     address: string;
+    password: string;
 
 }

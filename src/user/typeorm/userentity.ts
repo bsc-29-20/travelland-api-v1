@@ -32,6 +32,14 @@ export class User {
     phonenumber: string;
 
     @Column({
+        name:'password',
+        nullable: false,
+        default:'',
+
+    })
+    password:string;
+
+    @Column({
         name:'address',
         nullable: false,
         default:'',
