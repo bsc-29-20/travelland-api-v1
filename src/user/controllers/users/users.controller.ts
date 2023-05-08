@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Injectable, Param, ParseIntPipe, Post, Put, Patch, Delete, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Patch, Delete, UseInterceptors } from '@nestjs/common';
 import { LoggingInterceptor } from 'src/interceptors/logging.interceptor';
 import { CreateUserDto } from 'src/user/datatransferobjects/CreateUser.dto';
 import { UpdateUserDto } from 'src/user/datatransferobjects/UpdateUser.dto';
@@ -13,13 +13,13 @@ export class UsersController {
         return await this.usersService.getUsers()
     }
 
-    @Get(':id')
+    @Get(':userid')
     async getUser(@Param('userid', ParseIntPipe) userid: number) {
          return this.usersService.findUserById(userid);
-  }
+    }
 
     @Post()
-    async createuser(@Body() createUserDto: CreateUserDto){
+    async createUser(@Body() createUserDto: CreateUserDto){
         return await this.usersService.createUser(createUserDto)
     }
     

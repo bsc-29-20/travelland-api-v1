@@ -10,7 +10,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Travelland')
-    .setDescription('The travelland API description')
+    .setDescription('The Travelland API description')
     .setVersion('1.0')
     .addTag('users')
     .build();

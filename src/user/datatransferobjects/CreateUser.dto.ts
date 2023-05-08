@@ -1,5 +1,4 @@
-import {IsNumberString, IsNotEmpty, IsEmail, IsString, ValidateNested, IsNotEmptyObject} from "class-validator";
-import { Type } from "class-transformer";
+import {IsNumberString, IsNotEmpty, IsEmail, IsString} from "class-validator";
 
 export class CreateUserDto{
     @IsNumberString()

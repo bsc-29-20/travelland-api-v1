@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { UsersController } from './controllers/users/users.controller';
 import { UsersService } from './services/users/users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {User} from 'src/user/typeorm/userentity';
+import {User} from 'src/user/entity/userentity';
 
 
 // creating the usermodule class and exporting it 
