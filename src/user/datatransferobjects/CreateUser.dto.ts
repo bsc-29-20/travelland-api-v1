@@ -1,32 +1,20 @@
-import {IsNumberString, IsNotEmpty, IsEmail, IsString} from "class-validator";
+import { IsString, IsEmail, MinLength, IsNumber } from 'class-validator';
+import { Role } from 'src/roles/role.enum';
 
-export class CreateUserDto{
-    @IsNumberString()
-    @IsNotEmpty()
-    userid: number;
+export class CreateUserDto {
+  @IsString()
+  username: string;
 
-    @IsString()    
-    @IsNotEmpty()
-    username: string;
+  @IsEmail()
+  email: string;
 
-    @IsEmail()
-    email: string;
+  @IsNumber()
+  phone_number: number;
 
-    @IsNumberString()
-    phone_number: string;
+  @IsString()
+  @MinLength(6)
+  password: string;
 
-    @IsString()
-    address: string;
-
-    @IsNumberString()
-    age:string;
-
-    @IsString()
-    gender: string;
-
-    @IsString()
-    @IsNotEmpty()
-    password: string;
-
-
+  roles: Role[];
+  
 }

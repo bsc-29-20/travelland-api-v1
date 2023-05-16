@@ -1,11 +1,14 @@
-import {Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
+import { Review } from 'src/reviews/entity/reviewentity';
+import { Role } from 'src/roles/role.enum';
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 
 @Entity()
 export class User {
 
     @PrimaryGeneratedColumn({
-        type:'smallint', 
+        type:'int', 
         name:'userid',
     })
     userid: number;
@@ -13,51 +16,33 @@ export class User {
     @Column({
         name:'username',
         nullable: false,
-        default:'',
     })
     username: string;
 
     @Column({
         name:'email',
-        nullable: false,
-        default:'',
+        nullable: false,    
     })
     email: string;
 
-    @Column({
-        name:'phonenumber',
-        nullable: false,
-        default:'',
-    })
-    phonenumber: string;
 
     @Column({
         name:'password',
         nullable: false,
-        default:'',
-
     })
     password:string;
 
-    @Column({
-        name:'address',
-        nullable: false,
-        default:'',
-    })
-    address: string;
+    roles: Role[];
 
-    @Column({
-        name:'age',
-        nullable: false,
-        default:'',
-    })
-    age: string;
+    async validatePassword(password: string): Promise<boolean> {
+        return bcrypt.compare(password, this.password);
+      }
+    
+      async hashPassword(): Promise<void> {
+        this.password = await bcrypt.hash(this.password, 10);
+      }
 
-    @Column({
-        name:'gender',
-        nullable: false,
-        default:'',
-    })
-    gender: string;
+    @OneToMany(() => Review, review => review.user)
+    reviews: Review[];
+}
   
-} 

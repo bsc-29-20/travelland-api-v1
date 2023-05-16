@@ -13,19 +13,22 @@ async function bootstrap() {
     .setDescription('The Travelland API description')
     .setVersion('1.0')
     .addTag('users')
+    .addTag('profile')
+    .addTag('reviews')
+    .addTag('auth')
+    .addTag('flights')
+    .addTag('hotel')
+    .addTag('carRentals')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
- 
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
       })
     );
   
-  //setting a global prefix
-  app.setGlobalPrefix('api');
   await app.listen(5555);
 }
 bootstrap();

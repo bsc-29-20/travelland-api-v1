@@ -1,9 +1,8 @@
 export class UpdateUserDto{
 
-    userid: number;
+    email: string;
     username: string;
-    phone_number: string;
-    address: string;
+    phone_number: number;
     password: string;
 
 }
