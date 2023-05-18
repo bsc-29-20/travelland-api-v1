@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post, Patch, Delete, UseInterceptors } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { LoggingInterceptor } from 'src/interceptors/logging.interceptor';
 import { Roles } from 'src/roles/role.decorator';
 import { Role } from 'src/roles/role.enum';
 import { CreateUserDto } from 'src/user/datatransferobjects/CreateUser.dto';
@@ -9,7 +8,6 @@ import { UsersService } from 'src/user/services/users/users.service';
 
 @Controller('users')
 @ApiTags('users')
-@UseInterceptors(LoggingInterceptor)
 export class UsersController {
     constructor(private usersService: UsersService){}
     @Get()
