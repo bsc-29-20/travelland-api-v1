@@ -1,5 +1,5 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
-import { LoggerMiddleware } from './middleware/logger.middleware'
+import { logger } from './middleware/logger.middleware'
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './user/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -13,9 +13,10 @@ import { Hotel } from './hotel/entity/hotelentity';
 import { CarRentalModule } from './car-rental/car-rental.module';
 import { Car } from './car-rental/entity/car-rentalentity';
 import { BookingModule } from './booking/booking.module';
-import { APP_GUARD } from '@nestjs/core';
+import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { RolesGuard } from './roles/role.guard';
 import { Booking } from './booking/entity/bookingentity';
+import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
 @Module({
   imports: [
@@ -44,6 +45,11 @@ import { Booking } from './booking/entity/bookingentity';
       provide: APP_GUARD,
       useClass: RolesGuard,
     },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: LoggingInterceptor,
+    },
+
   ],
   
   
@@ -51,7 +57,7 @@ import { Booking } from './booking/entity/bookingentity';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
-      .apply(LoggerMiddleware)
+      .apply(logger)
       .forRoutes('users');
   }
 }
