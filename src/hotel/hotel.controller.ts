@@ -21,11 +21,13 @@ async getFlight(@Param('hotelid', ParseIntPipe) hotelid: number) {
 }
 
 @Post()
+@Roles(Role.Admin)
 async createHotel(@Body() createHotelDto: CreateHotelDto){
     return await this.hotelsService.createHotel(createHotelDto)
 }
 
 @Patch(':hotelid')
+@Roles(Role.Admin)
 async update(@Body() updateHotelDto: UpdateHotelDto, @Param('hotelid', ParseIntPipe) hotelid: number,) {
     return await this.hotelsService.updateHotel(updateHotelDto, hotelid);
 }

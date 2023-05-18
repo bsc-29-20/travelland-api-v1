@@ -2,6 +2,7 @@ import { Review } from 'src/reviews/entity/reviewentity';
 import { Role } from 'src/roles/role.enum';
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { Booking } from 'src/booking/entity/bookingentity';
 
 
 @Entity()
@@ -44,5 +45,8 @@ export class User {
 
     @OneToMany(() => Review, review => review.user)
     reviews: Review[];
+
+    @OneToMany(() => Booking, booking => booking.user)
+    bookings: Booking[];
 }
   

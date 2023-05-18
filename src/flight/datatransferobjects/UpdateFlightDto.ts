@@ -1,5 +1,3 @@
-// src/flight/dtos/create-flight.dto.ts
-
 export class UpdateFlightDto {
     airline: string;
     flightNumber: string;

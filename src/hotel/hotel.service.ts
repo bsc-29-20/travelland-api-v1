@@ -9,29 +9,28 @@ import { UpdateHotelDto } from './datatransferobjects/UpdateHotelDto';
 export class HotelService { 
     constructor(@InjectRepository(Hotel) private hotelsRepository: Repository<Hotel>){}
 
-//gets flight by id
+//gets hotel by id
 async findHotelById( hotelid: number){
 return await this.hotelsRepository.findOne({ where: { hotelid }});
 }
 
-
-//get all 
+//get all hotels
 async getHotels(){
 return await this.hotelsRepository.find();
   }
 
-//create users
+//create hotels
 async createHotel(hotelDetails: CreateHotelDto){
     const newHotel = this.hotelsRepository.create({...hotelDetails})
     return await this.hotelsRepository.save(newHotel);
 }
 
-//update users
+//update hotels
 async updateHotel(updateHotelDetails: UpdateHotelDto, hotelid: number) {
     return this.hotelsRepository.update({hotelid},{ ...updateHotelDetails});
   }
 
-  //delete users
+  //delete hotels
 async deleteHotel(hotelid: number){
     return await this.hotelsRepository.delete({hotelid });
   }}

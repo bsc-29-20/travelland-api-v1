@@ -1,5 +1,3 @@
-// src/flight/dtos/create-flight.dto.ts
-
 import { IsAlphanumeric, IsDate, IsDecimal, IsString } from "class-validator";
 
 export class CreateFlightDto {

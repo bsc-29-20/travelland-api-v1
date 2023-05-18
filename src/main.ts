@@ -13,11 +13,10 @@ async function bootstrap() {
     .setDescription('The Travelland API description')
     .setVersion('1.0')
     .addTag('users')
-    .addTag('profile')
     .addTag('reviews')
     .addTag('auth')
     .addTag('flights')
-    .addTag('hotel')
+    .addTag('hotels')
     .addTag('carRentals')
     .build();
   const document = SwaggerModule.createDocument(app, config);

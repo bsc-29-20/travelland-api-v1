@@ -19,6 +19,7 @@ export class UsersController {
     }
 
     @Get(':userid')
+    @Roles(Role.Admin)
     async getUser(@Param('userid', ParseIntPipe) userid: number) {
          return this.usersService.findUserById(userid);
     }

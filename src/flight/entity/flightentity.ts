@@ -1,7 +1,5 @@
-// src/flight/flight.entity.ts
-
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Booking } from 'src/booking/entity/bookingentity';
 @Entity()
 export class Flight {
   @PrimaryGeneratedColumn({
@@ -44,4 +42,7 @@ export class Flight {
    name:'price',
   })
   price: number;
+
+  @OneToMany(() => Booking, booking => booking.flight)
+  bookings: Booking[];
 }

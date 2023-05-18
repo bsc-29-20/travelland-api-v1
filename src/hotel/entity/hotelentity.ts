@@ -1,6 +1,7 @@
 // src/hotel/hotel.entity.ts
 
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Booking } from 'src/booking/entity/bookingentity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Hotel {
@@ -39,4 +40,8 @@ export class Hotel {
     name:'pricePerNight', 
   })
   pricePerNight: number;
+
+  @OneToMany(() => Booking, booking => booking.flight)
+  bookings: Booking[];
+
 }

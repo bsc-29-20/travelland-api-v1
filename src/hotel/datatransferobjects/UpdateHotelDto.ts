@@ -1,5 +1,3 @@
-// src/hotel/dtos/create-hotel.dto.ts
-
 export class UpdateHotelDto {
     hotelname: string;
     address: string;

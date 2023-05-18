@@ -1,5 +1,3 @@
-// src/hotel/dtos/create-hotel.dto.ts
-
 import { IsDecimal, IsNumber, IsString } from "class-validator";
 
 export class CreateHotelDto {

@@ -21,11 +21,13 @@ async getFlight(@Param('flightid', ParseIntPipe) flightid: number) {
 }
 
 @Post()
+@Roles(Role.Admin)
 async createFlight(@Body() createFlightDto: CreateFlightDto){
     return await this.flightsService.createFlight(createFlightDto)
 }
 
 @Patch(':flightid')
+@Roles(Role.Admin)
 async update(@Body() updateFlightDto: UpdateFlightDto, @Param('flightid', ParseIntPipe) flightid: number,) {
     return await this.flightsService.updateFlight(updateFlightDto, flightid);
 }
