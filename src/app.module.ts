@@ -1,4 +1,4 @@
-import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer, CacheInterceptor } from '@nestjs/common';
 import { logger } from './middleware/logger.middleware'
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './user/users.module';
@@ -17,6 +17,9 @@ import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { RolesGuard } from './roles/role.guard';
 import { Booking } from './booking/entity/bookingentity';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
+import { TransformInterceptor } from './interceptors/transform.interceptor';
+import { ExcludeNullInterceptor } from './interceptors/excludenull.interceptor';
+import { ErrorsInterceptor } from './interceptors/errors.interceptor';
 
 @Module({
   imports: [
@@ -47,9 +50,24 @@ import { LoggingInterceptor } from './interceptors/logging.interceptor';
     },
     {
       provide: APP_INTERCEPTOR,
-      useClass: LoggingInterceptor,
+      useClass: LoggingInterceptor, 
     },
-
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TransformInterceptor, 
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ExcludeNullInterceptor, 
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ErrorsInterceptor, 
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheInterceptor, 
+    },
   ],
   
   

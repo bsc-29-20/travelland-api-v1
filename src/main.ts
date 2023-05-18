@@ -3,7 +3,6 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { logger } from './middleware/logger.middleware';
-import helmet from 'helmet';
 
 
 async function bootstrap() {
@@ -12,12 +11,11 @@ async function bootstrap() {
    const app = await NestFactory.create(AppModule, { abortOnError: false });
 
    app.use(logger);
-   app.enableCors();
-   app.use(helmet());
 
   const config = new DocumentBuilder()
     .setTitle('Travelland')
-    .setDescription('The Travelland API is  backend  for an online travel portal ')
+    .setDescription('The Travelland API is a backend for an online travel portal')
+    .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
