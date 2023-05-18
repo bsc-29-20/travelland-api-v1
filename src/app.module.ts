@@ -1,4 +1,4 @@
-import { Module, NestModule, MiddlewareConsumer, CacheInterceptor } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer, } from '@nestjs/common';
 import { logger } from './middleware/logger.middleware'
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './user/users.module';
@@ -63,10 +63,6 @@ import { ErrorsInterceptor } from './interceptors/errors.interceptor';
     {
       provide: APP_INTERCEPTOR,
       useClass: ErrorsInterceptor, 
-    },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: CacheInterceptor, 
     },
   ],
   

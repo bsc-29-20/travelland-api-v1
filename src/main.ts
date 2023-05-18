@@ -14,7 +14,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Travelland')
-    .setDescription('The Travelland API is a backend for an online travel portal')
+    .setDescription('Travelland travel portal')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
