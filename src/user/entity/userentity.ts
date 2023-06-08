@@ -1,5 +1,5 @@
 import { Review } from 'src/reviews/entity/reviewentity';
-import { Role } from 'src/roles/role.enum';
+import { Role } from 'src/auth/roles/role.enum';
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { Booking } from 'src/booking/entity/bookingentity';

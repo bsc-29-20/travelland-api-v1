@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { CarRentalService } from './car-rental.service';
-import { Roles } from 'src/roles/role.decorator';
-import { Role } from 'src/roles/role.enum';
+import { Roles } from 'src/auth/roles/role.decorator';
+import { Role } from 'src/auth/roles/role.enum';
 import { CreateCarDto } from './datatransferobjects/CreateCarDto';
 import { UpdateCarDto } from './datatransferobjects/UpdateCarDto';
 import { ApiTags } from '@nestjs/swagger';

@@ -14,7 +14,7 @@ import { CarRentalModule } from './car-rental/car-rental.module';
 import { Car } from './car-rental/entity/car-rentalentity';
 import { BookingModule } from './booking/booking.module';
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
-import { RolesGuard } from './roles/role.guard';
+import { RolesGuard } from './auth/roles/role.guard';
 import { Booking } from './booking/entity/bookingentity';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { TransformInterceptor } from './interceptors/transform.interceptor';
@@ -32,11 +32,11 @@ import { ErrorsInterceptor } from './interceptors/errors.interceptor';
     BookingModule,
     TypeOrmModule.forRoot({
     type:'mysql',
-    host:'localhost',
+    host:'sql9.freemysqlhosting.net',
     port: 3306,
-    username:'root',
-    password:'',
-    database:'travelland_api_v1',
+    username:'sql9624644',
+    password:'KqNdcSzUhc',
+    database:'sql9624644',
     entities:[User,Review, Flight, Hotel, Car, Booking],
     synchronize: true,
 

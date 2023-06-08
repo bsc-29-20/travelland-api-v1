@@ -3,8 +3,8 @@ import { HotelService } from './hotel.service';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateHotelDto } from './datatransferobjects/CreateHotelDto';
 import { UpdateHotelDto } from './datatransferobjects/UpdateHotelDto';
-import { Roles } from 'src/roles/role.decorator';
-import { Role } from 'src/roles/role.enum';
+import { Roles } from 'src/auth/roles/role.decorator';
+import { Role } from 'src/auth/roles/role.enum';
 
 @Controller('hotels')
 @ApiTags('hotels')

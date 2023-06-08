@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post, Patch, Delete, UseInterceptors } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Roles } from 'src/roles/role.decorator';
-import { Role } from 'src/roles/role.enum';
+import { Roles } from 'src/auth/roles/role.decorator';
+import { Role } from 'src/auth/roles/role.enum';
 import { CreateUserDto } from 'src/user/datatransferobjects/CreateUser.dto';
 import { UpdateUserDto } from 'src/user/datatransferobjects/UpdateUser.dto';
 import { UsersService } from 'src/user/services/users/users.service';

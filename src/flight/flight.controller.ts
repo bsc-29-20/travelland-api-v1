@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { FlightService } from './flight.service';
 import { ApiTags } from '@nestjs/swagger';
-import { Roles } from 'src/roles/role.decorator';
-import { Role } from 'src/roles/role.enum';
+import { Roles } from 'src/auth/roles/role.decorator';
+import { Role } from 'src/auth/roles/role.enum';
 import { UpdateFlightDto } from './datatransferobjects/UpdateFlightDto';
 import { CreateFlightDto } from './datatransferobjects/CreateFlightDto';
 
