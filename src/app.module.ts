@@ -34,9 +34,9 @@ import { ErrorsInterceptor } from './interceptors/errors.interceptor';
     type:'mysql',
     host:'sql9.freemysqlhosting.net',
     port: 3306,
-    username:'sql9624644',
-    password:'KqNdcSzUhc',
-    database:'sql9624644',
+    username:'sql9632668',
+    password:'aKC9ePTXnb',
+    database:' sql9632668',
     entities:[User,Review, Flight, Hotel, Car, Booking],
     synchronize: true,
 
