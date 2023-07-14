@@ -36,7 +36,7 @@ import { ErrorsInterceptor } from './interceptors/errors.interceptor';
     port: 3306,
     username:'sql9632668',
     password:'aKC9ePTXnb',
-    database:' sql9632668',
+    database:'sql9632668',
     entities:[User,Review, Flight, Hotel, Car, Booking],
     synchronize: true,
 
